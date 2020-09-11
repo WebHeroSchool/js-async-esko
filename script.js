@@ -21,9 +21,13 @@ let apiLink = generateUrl();
 const renderCard = function (obj) {
   if (obj[0] != undefined) {
     $userAva.src = obj.avatar_url;
-    $userName.innerHTML = obj.name;
+    $userLink.innerHTML = obj.name;
     $userLink.href = obj.html_url;
-    $userBio.innerHTML = obj.bio;
+    if (obj.bio != '') {
+      $userBio.innerHTML = obj.bio;
+    } else {
+      $userBio.innerHTML = "This user haven't bio in profile";
+    }
   } else {
     console.log('Unexpected error :(')
   }
