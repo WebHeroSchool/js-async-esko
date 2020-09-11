@@ -20,17 +20,17 @@ let apiLink = generateUrl();
 
 const renderCard = function (obj) {
   $userAva.src = obj.avatar_url;
-  $userLink.innerHTML = obj.name;
+  $userLink.innerHTML = obj.login;
   $userLink.href = obj.html_url;
-  if (obj.bio != '') {
+  if (obj.bio != null) {
     $userBio.innerHTML = obj.bio;
   } else {
-    $userBio.innerHTML = "This user haven't bio in profile";
+    $userBio.innerHTML = "This user haven't bio in profile :(";
   }
 }
 
 fetch(apiLink)
-    .then(res => { return res.json()})
+    .then(res => res.json())
     .then(obj => newUser = Object.assign({}, obj))
-    .then(renderCard(newUser))
-    .catch(err => console.log(err));
+    .then(newUser => renderCard(newUser))
+    .catch(err => console.error(err));

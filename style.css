@@ -26,6 +26,10 @@ h1 {
   border: 10px solid #fced25e8;
 }
 
+#text {
+  width: 340px;
+}
+
 #name {
   margin-top: 0.5em;
 }
