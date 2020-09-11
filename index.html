@@ -4,16 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loader.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
   <h1>Users's card:</h1>
   <div id="card">
-    <img id="avatar" src="https://avatars1.githubusercontent.com/u/67374673?s=460&v=4" alt="user's avatar">
-    <div id="text">
+    <div id="loader" class="banter-loader">
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+    </div>
+    <img id="avatar" class="hidden" src="https://avatars1.githubusercontent.com/u/67374673?s=460&v=4" alt="user's avatar">
+    <div id="text" class="hidden">
       <h2 id="name"><a href="#" id="link">Aug512</a></h2>
       <p id="bio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex inventore expedita labore vero dolorum consequuntur sequi dolore commodi voluptas, quo magni, totam iste. Dolor necessitatibus nesciunt alias, rerum provident placeat totam asperiores dolorem perferendis mollitia perspiciatis sit quas molestiae voluptas!</p>
+      <time id="date">current date</time>
     </div>
   </div>
   <script src="script.js"></script>

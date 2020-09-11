@@ -2,9 +2,12 @@ let defaultUser = 'aug512';
 let newUser;
 let href = document.location.href;
 const $userAva = document.getElementById('avatar');
+const $userText = document.getElementById('text');
+const $loader = document.getElementById('loader');
 const $userName = document.getElementById('name');
 const $userBio = document.getElementById('bio');
 const $userLink = document.getElementById('link');
+const $date = document.getElementById('date');
 
 const generateUrl = function () {
   let user = href.split('=');
@@ -18,7 +21,16 @@ const generateUrl = function () {
 
 let apiLink = generateUrl();
 
+let currentDate = new Date();
+
+const getDate = new Promise((resolve, reject) => {
+  setTimeout(() => currentDate ? resolve($date.innerHTML = currentDate.toDateString()) : reject('Не удалось получить дату'), 1500);
+})
+
 const renderCard = function (obj) {
+  $loader.classList.toggle("hidden");
+  $userAva.classList.toggle("hidden");
+  $userText.classList.toggle("hidden");
   $userAva.src = obj.avatar_url;
   $userLink.innerHTML = obj.login;
   $userLink.href = obj.html_url;
@@ -29,7 +41,8 @@ const renderCard = function (obj) {
   }
 }
 
-fetch(apiLink)
+Promise.all([getDate])
+    .then(() => fetch(apiLink))
     .then(res => res.json())
     .then(obj => newUser = Object.assign({}, obj))
     .then(newUser => renderCard(newUser))

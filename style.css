@@ -16,6 +16,8 @@ h1 {
   margin: 0 auto;
   padding: 10px;
   background-color: #c4c4c4;
+  position: relative;
+  min-height: 200px;
 }
 
 #avatar {
@@ -28,6 +30,7 @@ h1 {
 
 #text {
   width: 340px;
+  position: relative;
 }
 
 #name {
@@ -44,3 +47,14 @@ h1 {
   color: #9b932de8;
 }
 
+#date {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 0.8rem;
+  opacity: .7;
+}
+
+.hidden {
+  display: none;
+}
