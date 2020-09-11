@@ -19,21 +19,18 @@ const generateUrl = function () {
 let apiLink = generateUrl();
 
 const renderCard = function (obj) {
-  if (obj[0] != undefined) {
-    $userAva.src = obj.avatar_url;
-    $userLink.innerHTML = obj.name;
-    $userLink.href = obj.html_url;
-    if (obj.bio != '') {
-      $userBio.innerHTML = obj.bio;
-    } else {
-      $userBio.innerHTML = "This user haven't bio in profile";
-    }
+  $userAva.src = obj.avatar_url;
+  $userLink.innerHTML = obj.name;
+  $userLink.href = obj.html_url;
+  if (obj.bio != '') {
+    $userBio.innerHTML = obj.bio;
   } else {
-    console.log('Unexpected error :(')
+    $userBio.innerHTML = "This user haven't bio in profile";
   }
 }
 
 fetch(apiLink)
     .then(res => { return res.json()})
-    .then(userData => renderCard(userData))
+    .then(obj => newUser = Object.assign({}, obj))
+    .then(renderCard(newUser))
     .catch(err => console.log(err));
